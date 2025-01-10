@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectToDatabase } from "./config/database";
 import { moviesRouter } from "./api/movies/routers";
+import { favoritesRouter } from "./api/favorites/routers";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ connectToDatabase().then(() => {
     
     // Register routes
     app.use("/", moviesRouter);
+    app.use("/", favoritesRouter);
 
     app.get("/", (req: Request, res: Response) => {
         res.send("Welcome to the backend server of filmsuche!");
