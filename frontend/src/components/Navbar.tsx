@@ -1,5 +1,5 @@
 import { Menu, Typography, Grid, Flex } from "antd";
-import { FaHome, FaClipboardList, FaCar, FaUser, FaBars } from "react-icons/fa";
+import { FaHome, FaVideo , FaStar, FaUser, FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -15,8 +15,8 @@ export const Navbar: React.FC = () => {
 
     const navLinks = [
         { name: "Home", route: "/", icon: <FaHome /> },
-        { name: "Movies", route: "/movies", icon: <FaClipboardList /> },
-        { name: "Favorites", route: "/favorites", icon: <FaCar /> },
+        { name: "Movies", route: "/movies", icon: <FaVideo /> },
+        { name: "Favorites", route: "/favorites", icon: <FaStar /> },
         { name: "Contact Us", route: "/contact-us", icon: <FaUser /> },
     ];
 
@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
         >
             <Flex align="center" justify="around" style={{ width: "100vw" }}>
                 <Title level={4} style={{ margin: 0 }}>
-                    Menorca
+                    Filmsuche
                 </Title>
                 {!screens.xxl && (
                     <FaBars

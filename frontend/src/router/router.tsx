@@ -4,7 +4,7 @@ import { Home } from "../pages/Home";
 import { Movies } from "../pages/Movies";
 import { ContactUs } from "../pages/ContactUs";
 import { Favorites } from "../pages/Favorites";
-
+import { MovieComponent } from "../components/MovieComponent";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: "/movies",
                 element: <Movies />,
+            },
+            {
+                path: "/movies/:name",
+                element: <MovieComponent />,
             },
             {
                 path: "/favorites",
