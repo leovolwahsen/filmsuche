@@ -19,7 +19,7 @@ export const Movies: React.FC = () => {
 
 
     return (
-        <Flex vertical align="center" justify="center" style={{ width: "100%" }} gap={1}>
+        <Flex vertical align="center" justify="center" style={{ width: "100%", padding: "2rem"}} gap={2}>
             <Title level={2} style={{ }}>Kinofilme</Title>
             <Flex wrap="wrap" justify="center" gap={50}>
                 {movies && movies.map((elem, index) => (
