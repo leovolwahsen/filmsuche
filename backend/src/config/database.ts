@@ -16,6 +16,7 @@ const client = new MongoClient(uri, {
 export let db: Db;
 export let moviesCollections: Collection;
 export let favoritesCollections: Collection;
+export let messagesCollections: Collection;
 
 export async function connectToDatabase(): Promise<void> {
     try {
@@ -24,6 +25,7 @@ export async function connectToDatabase(): Promise<void> {
         
         moviesCollections = db.collection("movies");
         favoritesCollections = db.collection("favorites");
+        messagesCollections = db.collection("messages");
 
         console.log("Connected to MongoDB and initialised collections");
     } catch(error) {

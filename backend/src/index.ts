@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { connectToDatabase } from "./config/database";
 import { moviesRouter } from "./api/movies/routers";
 import { favoritesRouter } from "./api/favorites/routers";
+import { messagesRouter } from "./api/messages/routers";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ connectToDatabase().then(() => {
     // Register routes
     app.use("/", moviesRouter);
     app.use("/", favoritesRouter);
+    app.use("/", messagesRouter);
 
     app.get("/", (req: Request, res: Response) => {
         res.send("Welcome to the backend server of filmsuche!");
