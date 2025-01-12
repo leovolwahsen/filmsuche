@@ -5,6 +5,8 @@ import { Movies } from "../pages/Movies";
 import { ContactUs } from "../pages/ContactUs";
 import { Favorites } from "../pages/Favorites";
 import { MovieComponent } from "../components/MovieComponent";
+import { IMovie } from "../types/movies";
+import { IFavorites } from "../types/favorites";
 
 const router = createBrowserRouter([
     {
@@ -21,11 +23,25 @@ const router = createBrowserRouter([
             },
             {
                 path: "/movies/:name",
-                element: <MovieComponent />,
+                element: (
+                    <MovieComponent<IMovie>
+                        fetchEndpoint="/movies"
+                        entityName="Film"
+                    />
+                ),
             },
             {
                 path: "/favorites",
                 element: <Favorites />,
+            },
+            {
+                path: "/favorites/:name",
+                element: (
+                    <MovieComponent<IFavorites>
+                        fetchEndpoint="/favorites"
+                        entityName="Favorit"
+                    />
+                ),
             },
             {
                 path: "/contact-us",

@@ -1,19 +1,20 @@
 import { Card, Col, Flex, Image } from "antd";
 import { Link } from "react-router-dom";
-import { IMovie } from "../types/movies";
+import { ICardComponentProps } from "../types/card";
 
-interface CardComponentProps {
-    movie: IMovie;
-}
-
-export const CardComponent: React.FC<CardComponentProps> = ({ movie }) => {
+export const CardComponent = <T extends unknown>({
+    data,
+    linkPath,
+    title,
+    image,
+}: ICardComponentProps<T>) => {
     return (
         <Col>
-            <Link to={`/movies/${movie.name}`}>
-                <Card title={<div style={{ textAlign: "center" }}>{movie.name}</div>} hoverable>
+            <Link to={linkPath(data)}>
+                <Card title={<div style={{ textAlign: "center" }}>{title(data)}</div>} hoverable>
                     <Flex vertical justify="center">
                         <Image
-                            src={movie.bild}
+                            src={image(data)}
                             alt="Kinofilm Poster"
                             preview={false}
                             style={{ objectFit: "cover", height: 300 }}
