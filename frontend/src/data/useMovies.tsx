@@ -6,7 +6,6 @@ export const useMovies = () => {
     const axiosInstance = useAxios();
     const [movies, setMovies] = useState<IMovie[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    console.log(`Movies data: ${movies}`);
 
     useEffect(() => {
         setIsLoading(true);

@@ -6,7 +6,6 @@ export const useFavorites = () => {
     const axiosInstance = useAxios();
     const [favorites, setFavorites] = useState<IFavorites[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    console.log(`Favorites data: ${favorites}`);
 
     useEffect(() => {
         setIsLoading(true);

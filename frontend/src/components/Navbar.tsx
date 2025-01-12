@@ -14,10 +14,10 @@ export const Navbar: React.FC = () => {
     };
 
     const navLinks = [
-        { name: "Home", route: "/", icon: <FaHome /> },
-        { name: "Movies", route: "/movies", icon: <FaVideo /> },
-        { name: "Favorites", route: "/favorites", icon: <FaStar /> },
-        { name: "Contact Us", route: "/contact-us", icon: <FaUser /> },
+        { name: "Hauptseite", route: "/", icon: <FaHome /> },
+        { name: "Filme", route: "/movies", icon: <FaVideo /> },
+        { name: "Favorieten", route: "/favorites", icon: <FaStar /> },
+        { name: "Kontakt", route: "/contact-us", icon: <FaUser /> },
     ];
 
     const items = navLinks.map((link) => ({
