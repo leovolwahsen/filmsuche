@@ -1,5 +1,5 @@
-import { Menu, Typography, Grid, Row, Col, Drawer, Button } from "antd";
-import { FaHome, FaVideo, FaStar, FaUser, FaBars, FaCross } from "react-icons/fa";
+import { Menu, Typography, Grid, Col, Drawer, Button, Flex } from "antd";
+import { FaHome, FaVideo, FaStar, FaUser, FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
@@ -35,8 +35,8 @@ export const Navbar: React.FC = () => {
     const location = useLocation();
 
     return (
-        <nav style={{ backgroundColor: "#001529", padding: "0.5rem 1rem" }}>
-            <Row align="middle" justify="space-between" style={{ width: "100%" }}>
+        <nav style={{ backgroundColor: "#001529", padding: "1rem 1.2rem" }}>
+            <Flex vertical align="start" justify="space-between" style={{ width: "100vw" }}>
                 <Col flex="none">
                     <Title level={3} style={{ margin: 0, color: "white" }}>
                         Filmsuche
@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
                 <Col flex="auto" style={{ textAlign: "center" }}>
                     {!screens.md && (
                         <Button
-                            icon={<FaBars style={{ fontSize: "20px", color: "white" }} />}
+                            icon={<FaBars style={{ fontSize: "1.5rem", color: "white" }} />}
                             type="text"
                             onClick={toggleMenu}
                             style={{
@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
                         />
                     )}
                 </Col>
-            </Row>
+            </Flex>
 
             {screens.md ? (
                 <Menu
@@ -81,16 +81,21 @@ export const Navbar: React.FC = () => {
                     open={menuOpen}
                     styles={{
                         body: {
-                            padding: 0,
                             backgroundColor: "#001529",
                         },
                         header: {
+                            paddingTop: 44,
+
                             backgroundColor: "#001529",
                             color: "white",
                             borderBottom: "none",
                         },
                     }}
-                    closeIcon={<FaXmark size={24} style={{ color: "white" }} />}
+                    closeIcon={
+                        <Flex style={{ fontSize: "2rem", color: "white" }}>
+                            <FaXmark />
+                        </Flex>
+                    }
                 >
                     <Menu
                         mode="vertical"

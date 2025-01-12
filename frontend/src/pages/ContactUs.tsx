@@ -51,7 +51,7 @@ export const ContactUs: React.FC = () => {
                     form={form}
                     layout="vertical"
                     onFinish={handleSubmit}
-                    style={{ backgroundColor: "#f9f9f9", padding: "2rem", borderRadius: "8px" }}
+                    style={{ backgroundColor: "#f9f9f9", padding: "2rem", borderRadius: 8, border: "1px solid #e0e0e0" }}
                 >
                     <Form.Item
                         label="Dein Name"

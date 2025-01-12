@@ -11,7 +11,7 @@ export const CardComponent = <T extends unknown>({
     return (
         <Col>
             <Link to={linkPath(data)}>
-                <Card title={<div style={{ textAlign: "center" }}>{title(data)}</div>} hoverable>
+                <Card title={<div style={{ textAlign: "center" }}>{title(data)}</div>} hoverable style={{ backgroundColor: "#f9f9f9", border: "1px solid #e0e0e0", borderRadius: 8 }}>
                     <Flex vertical justify="center">
                         <Image
                             src={image(data)}

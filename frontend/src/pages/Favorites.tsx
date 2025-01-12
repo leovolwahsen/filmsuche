@@ -53,9 +53,10 @@ export const Favorites: React.FC = () => {
                     maxWidth: 700,
                     width: "100%",
                     padding: "1rem 3rem",
-                    border: "1px solid #ddd",
-                    borderRadius: 10,
-                    margin: "2rem 0"
+                    border: "1px solid #e0e0e0",
+                    borderRadius: 8,
+                    margin: "2rem 0",
+                    backgroundColor: "#f9f9f9",
                 }}
             >
                 <Title level={5}>Hier könnnen Sie weitere Filme hinzufügen</Title>
