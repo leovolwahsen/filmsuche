@@ -1,5 +1,6 @@
-import { Menu, Typography, Grid, Flex } from "antd";
-import { FaHome, FaVideo , FaStar, FaUser, FaBars } from "react-icons/fa";
+import { Menu, Typography, Grid, Row, Col, Drawer, Button } from "antd";
+import { FaHome, FaVideo, FaStar, FaUser, FaBars, FaCross } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -21,64 +22,90 @@ export const Navbar: React.FC = () => {
     ];
 
     const items = navLinks.map((link) => ({
-        label: <NavLink to={link.route}>{link.name}</NavLink>,
+        label: (
+            <NavLink to={link.route} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                {link.icon}
+                {link.name}
+            </NavLink>
+        ),
         key: link.route,
-        icon: link.icon
     }));
 
     const screens = useBreakpoint();
     const location = useLocation();
 
     return (
-        <nav
-            style={{
-                backgroundColor: "#f5f5f5",
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-                padding: "1rem 0",
-                position: "relative",
-            }}
-        >
-            <Flex align="center" justify="around" style={{ width: "100vw" }}>
-                <Title level={4} style={{ margin: 0 }}>
-                    Filmsuche
-                </Title>
-                {!screens.xxl && (
-                    <FaBars
-                        style={{ fontSize: "24px", cursor: "pointer" }}
-                        onClick={toggleMenu}
-                    />
-                )}
-            </Flex>
+        <nav style={{ backgroundColor: "#001529", padding: "0.5rem 1rem" }}>
+            <Row align="middle" justify="space-between" style={{ width: "100%" }}>
+                <Col flex="none">
+                    <Title level={3} style={{ margin: 0, color: "white" }}>
+                        Filmsuche
+                    </Title>
+                </Col>
+                <Col flex="auto" style={{ textAlign: "center" }}>
+                    {!screens.md && (
+                        <Button
+                            icon={<FaBars style={{ fontSize: "20px", color: "white" }} />}
+                            type="text"
+                            onClick={toggleMenu}
+                            style={{
+                                background: "transparent",
+                                border: "none",
+                                boxShadow: "none",
+                            }}
+                        />
+                    )}
+                </Col>
+            </Row>
 
-            {!screens.xxl && menuOpen ? (
-                <Menu
-                    mode="vertical"
-                    selectedKeys={[location.pathname]}
-                    defaultSelectedKeys={["/"]}
-                    items={items}
-                    style={{
-                        position: "absolute",
-                        top: "100%",
-                        left: 0,
-                        width: "100vw",
-                        backgroundColor: "#f5f5f5",
-                        border: "none",
-                        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-                    }}
-                />
-            ) : screens.xxl ? (
+            {screens.md ? (
                 <Menu
                     mode="horizontal"
-                    theme="light"
+                    theme="dark"
                     selectedKeys={[location.pathname]}
                     defaultSelectedKeys={["/"]}
                     items={items}
                     style={{
-                        marginTop: "10px",
                         width: "100vw",
+                        display: "flex",
+                        justifyContent: "start",
+                        backgroundColor: "#001529",
+                        borderBottom: "none",
+                        flexWrap: "wrap",
                     }}
                 />
-            ) : null}
+            ) : (
+                <Drawer
+                    placement="left"
+                    onClose={toggleMenu}
+                    open={menuOpen}
+                    styles={{
+                        body: {
+                            padding: 0,
+                            backgroundColor: "#001529",
+                        },
+                        header: {
+                            backgroundColor: "#001529",
+                            color: "white",
+                            borderBottom: "none",
+                        },
+                    }}
+                    closeIcon={<FaXmark size={24} style={{ color: "white" }} />}
+                >
+                    <Menu
+                        mode="vertical"
+                        theme="dark"
+                        selectedKeys={[location.pathname]}
+                        defaultSelectedKeys={["/"]}
+                        items={items}
+                        onClick={toggleMenu}
+                        style={{
+                            backgroundColor: "#001529",
+                            border: "none",
+                        }}
+                    />
+                </Drawer>
+            )}
         </nav>
-    )
-}
+    );
+};

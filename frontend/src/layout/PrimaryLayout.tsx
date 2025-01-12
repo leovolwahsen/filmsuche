@@ -11,15 +11,17 @@ export const PrimaryLayout: React.FC = () => {
         style={{
           position: "fixed",
           top: 0,
-          zIndex: 1000, 
+          left: 0,
+          zIndex: 1000,
           backgroundColor: "#ffffff",
+          margin: 0
         }}
       >
         <Navbar />
       </div>
       <Flex style={{ width: "100%", flexGrow: 1, padding: "1rem 0", marginTop: "4rem" }}>
         <Outlet />
-    </Flex>
+      </Flex>
     </Flex>
   )
 }

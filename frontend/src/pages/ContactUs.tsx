@@ -9,14 +9,14 @@ const { Title, Paragraph } = Typography;
 // Error handling utility
 const handleError = (err: unknown): Error | string => {
     if (err instanceof Error) {
-      return err;
+        return err;
     }
     return "An unknown error occurred.";
-  };
-  
-  const extractErrorMessage = (err: Error | string | null): string => {
+};
+
+const extractErrorMessage = (err: Error | string | null): string => {
     return err instanceof Error ? err.message : err || "";
-  };
+};
 
 export const ContactUs: React.FC = () => {
     const axiosInstance = useAxios();
@@ -54,7 +54,7 @@ export const ContactUs: React.FC = () => {
                     style={{ backgroundColor: "#f9f9f9", padding: "2rem", borderRadius: "8px" }}
                 >
                     <Form.Item
-                        label="Your Name"
+                        label="Dein Name"
                         name="name"
                         rules={[{ required: true, message: "Bitte geben Sie Ihren Namen ein" }]}
                     >
