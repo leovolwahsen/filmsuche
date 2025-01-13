@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@filmsuche.l9jxt.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@filmsuche.l9jxt.mongodb.net/?retryWrites=true&w=majority&appName=filmsuche`;
 
 const client = new MongoClient(uri, {
     serverApi: {
