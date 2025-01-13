@@ -49,7 +49,7 @@ export const Home: React.FC = () => {
         </Paragraph>
         <Card
           hoverable
-          style={{ width: "100%", maxWidth: "800px" }}
+          style={{ width: "100%", maxWidth: "800px", backgroundColor: "#f9f9f9", borderRadius: "10px" }}
           cover={<img alt="Featured Movie" src={featuredMovie.bild} />}
         >
           <Flex vertical gap={15}>
