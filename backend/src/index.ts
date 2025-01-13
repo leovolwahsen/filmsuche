@@ -15,24 +15,24 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Start the server 
-connectToDatabase()
-    .then(() => {
-        console.log("Database connected successfully");
+// Initiate MongoDB connection 
+connectToDatabase().then(() => {
+    console.log("Database connected successfully");
 
-        // Register routes
-        app.use("/movies", moviesRouter);
-        app.use("/favorites", favoritesRouter);
-        app.use("/messages", messagesRouter);
+    // Register routes
+    app.use("/", moviesRouter);
+    app.use("/", favoritesRouter);
+    app.use("/", messagesRouter);
 
-        app.get("/", (req: Request, res: Response) => {
-            res.send("Welcome to the backend server of filmsuche!");
-        });
-        app.listen(port, () => {
-            console.log(`Server is running on port ${port}`);
-        });
-    })
-    .catch((error) => {
-        console.error(`Failed to connect to database: ${error}`);
-        process.exit(1);
+    app.get("/", (req: Request, res: Response) => {
+        res.send("Welcome to the backend server of filmsuche!");
     });
+
+    // Start server
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
+}).catch((error) => {
+    console.error(`Failed to connect to database: ${error}`);
+    process.exit(1);
+});
